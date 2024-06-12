@@ -26,6 +26,17 @@ This is a mod library or dependency. **If you're playing with this mod installed
 
 ## Supported Analytics Sites:
 - Google Analytics (GA4) [Free]
+
+![GA realtime users screen example](https://i.ibb.co/NmXyzhf/GA.png)
+![GA event params example gif](https://i.ibb.co/xh99Jkg/GA-event.gif)
+
+-
+  - User & new user charts supported
+  - Location (city) map & charts supported
+  - Events (with dimensions and metrics) supported
+  - Engagement time charts supported
+  - Screen resolution chart supported
+
 - More coming soon (upon request)
 
 ## Usage
@@ -44,10 +55,12 @@ public class YourHopefullyErrorFreeModOrSmth : BaseUnityPlugin { ... }
 ```
 
 ### Creating a GA session
-Reference the static ``AnalyticsManager`` class and call the ```registerGASession(...)``` method to connect your plugin to Google Analytics (GA4):
+Reference the static ``AnalyticsManager`` class and call the ``registerGASession(...)`` method to connect your plugin to Google Analytics (GA4):
 ```c#
 GASession gaSession = AnalyticsManager.registerGASession("net.YourUsername.YourMod", "Your Mod Name", "1.0.0", "Your mod desc. that explains what data you will collect and WHY you're collecting it.", "G-YOURMEASUREMENTID");
 ```
+See [Creating a GA4 property](https://github.com/RoosterBooster007/LethalAnalytics/#Creating-a-GA4-property) if you need a ``MEASUREMENT ID``.
+
 If needed, you can register multiple GA sessions (and still send events to each, separately).
 Please be careful about changing your ``modId``, ``modName``, and ``modVersion``. This can cause issues with session creation and user consent settings.
 
@@ -63,6 +76,15 @@ Here's some documentation about its parameters:
 | renewScreenTitle | string (optional) | The title name to send when a session is continued for GA4 (default: InGame). |
 | sendSystemInfo | bool (optional) | Whether to send the user's CPU and GPU type along with the GA4 session_start event (as event params). OS info and screen res. will be sent regardless. |
 | sessionLengthMins | int (optional) | How long a GA4 user session is set to last in minutes (default: 30). By default, sessions are re-created if they timeout (as long as the game is still open). Only change this if you know what you're doing. |
+
+By default, every instance of ``GASession`` sends a few user events:
+| Event Name | Description |
+|:--------|:-------------|
+| session_start | This event is sent as soon as the ``registerGASession(...)`` method is called for each user. It starts each user's session. |
+| page_visit | This event is sent as soon as the ``registerGASession(...)`` method is called for each user. Includes some basic version info (and their CPU (type) and GPU (type) if enabled). |
+| first_visit | This event is sent as soon as ``registerGASession(...)`` method is called for each user (for the first time). It's what lets you know if a user ran your mod for the first time. |
+| update | This event is sent as soon as each user reaches Lethal Company's main menu (and they just updated your mod). It's what lets you know if a user recently updated your mod (and to what version). |
+| session_end | This event is sent as soon as each user quits Lethal Company (through the main menu). It ends each user's session. |
 
 ### Sending GA events
 In order to send GA events, you'll need an instance of a ``GASession``. It's recommended that you store the previously shown GASession instance in an internal static variable. That way, you can safely access it throughout your mod assembly.
