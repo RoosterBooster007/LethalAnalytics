@@ -15,16 +15,16 @@ This is a mod library or dependency. **If you're playing with this mod installed
 | ✅ | [BepInExPack](https://thunderstore.io/c/lethal-company/p/BepInEx/BepInExPack/versions/#:~:text=5.4.2100) | 5.4.2100 |
 
 ## Overview
-- [Supported Analytics Sites](https://github.com/RoosterBooster007/LethalAnalytics/#Supported-Analytics-Sites)
-- [Usage](https://github.com/RoosterBooster007/LethalAnalytics/#Usage)
-  - [Setting up](https://github.com/RoosterBooster007/LethalAnalytics/#Setting-up)
-  - [Creating a GA session](https://github.com/RoosterBooster007/LethalAnalytics/#Creating-a-GA-session)
-  - [Sending GA events](https://github.com/RoosterBooster007/LethalAnalytics/#Sending-GA-events)
-  - [Creating a README note](https://github.com/RoosterBooster007/LethalAnalytics/#Creating-a-README-note)
-  - [Creating a GA4 property](https://github.com/RoosterBooster007/LethalAnalytics/#Creating-a-GA4-property)
-- [Telemetrics](https://github.com/RoosterBooster007/LethalAnalytics/#Telemetrics)
-- [Issues & Contributions](https://github.com/RoosterBooster007/LethalAnalytics/#Issues-&-Contributions)
-- [Licencing](https://github.com/RoosterBooster007/LethalAnalytics/#Licencing)
+- [Supported Analytics Sites](#supported-analytics-sites)
+- [Usage](#usage)
+  - [Setting up](#setting-up)
+  - [Creating a GA session](#creating-a-ga-session)
+  - [Sending GA events](#sending-ga-events)
+  - [Creating a README note](#creating-a-readme-note)
+  - [Creating a GA4 property](#creating-a-ga4-property)
+- [Telemetrics](#telemetrics)
+- [Issues and Contributions](#issues-and-contributions)
+- [Licencing](#licencing)
 
 ## Supported Analytics Sites:
 - Google Analytics (GA4) [Free]
@@ -128,7 +128,7 @@ The event logs when a user brings a new scrap item to the ship and sends its nam
 
 See [Telemetrics](https://github.com/RoosterBooster007/LethalAnalytics/#Telemetrics) for an example (below). **It's always important to be transparent and respect user privacy.** Users should know what events are being collected and why.
 
-### Creating a GA4 property (analytics.google.com)
+### Creating a GA4 property
 - Navigate to ``https://analytics.google.com/`` --> ``Create`` --> ``Property``.
 - Enter your ``property name`` and ``time zone`` --> ``Next``.
 
@@ -166,10 +166,10 @@ Unless turned off in the config, LethalAnalytics may upload small amounts of Let
 
 This section doesn't include analytics/telemetrics data collected by other mods. Consult each mod README and their config description for more info.
 
-## Issues & Contributions
+## Issues and Contributions
 Please follow the available issue templates when submitting requests. Use the discussions tab when wanting to chat. Pull requests (to the ```dev``` branch) and other user contributions are encouraged and always welcome.
 
-## Licencing (GPLv3)
+## Licencing
 Read the **LICENSE** file for more information. The **Contributor Agreement** can be found there too. By downloading or contributing to this repo, you agree to the terms stated in the **LICENSE** file.
 
 ```Copyright (C) 2024 RoosterBooster007```
