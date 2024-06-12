@@ -55,6 +55,7 @@ Also include LethalAnalytics as a ``BepInDependency`` of your mod so that BepInE
 [BepInDependency("net.RB007.LethalAnalytics")]   <--- (right here)
 public class YourHopefullyErrorFreeModOrSmth : BaseUnityPlugin { ... }
 ```
+If uploading your mod to Thunderstore, make sure to include LethalAnalytics in your ``manifest.json`` file.
 
 ### Creating a GA session
 Reference the static ``AnalyticsManager`` class and call the ``registerGASession(...)`` method to connect your plugin to Google Analytics (GA4):
@@ -93,9 +94,9 @@ In order to send GA events, you'll need an instance of a ``GASession``. It's rec
 ```c#
 internal static GASession gaSession = AnalyticsManager.registerGASession(...);
 ```
-Then, call the ``SendGAEvent(...)`` method, from your ``GASession`` instance, to send custom GA events to your property.
+Then, call the ``sendGAEvent(...)`` method, from your ``GASession`` instance, to send custom GA events to your property.
 ```c#
-gaSession.SendGAEvent("category", "name", new Dictionary<string, string>() { ["event_param"] = "event_value" });
+gaSession.sendGAEvent("category", "name", new Dictionary<string, string>() { ["event_param"] = "event_value" });
 ```
 Please be careful about sending events too quickly and keep event params minimal. Your mod shouldn't dramatically affect a user's networking.
 
@@ -116,7 +117,7 @@ public class ItemPatch
   [HarmonyPostfix]
   public static void patchCollect(ref Item ___itemProperties, ref int ___scrapValue)
   {
-    YourModClass.gaSession.SendGAEvent("event", "collect", new Dictionary<string, string>() { ["item_name"] = ___itemProperties.itemName, ["scrap_value"] = ___scrapValue.ToString(), ["elapsed"] = StartOfRound.Instance.timeSinceRoundStarted.ToString() });
+    YourModClass.gaSession.sendGAEvent("event", "collect", new Dictionary<string, string>() { ["item_name"] = ___itemProperties.itemName, ["scrap_value"] = ___scrapValue.ToString(), ["elapsed"] = StartOfRound.Instance.timeSinceRoundStarted.ToString() });
   }
 }
 ```
