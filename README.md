@@ -1,3 +1,5 @@
+<img src="https://github.com/RoosterBooster007/LethalAnalytics/blob/master/icon.png?raw=true" width="160px" height="160px"></img>
+
 # LethalAnalytics
 [![Thunderstore Version](https://img.shields.io/thunderstore/v/RB007/LethalAnalytics?style=for-the-badge&logo=thunderstore&logoColor=white)](https://thunderstore.io/c/lethal-company/p/RB007/LethalAnalytics/)
 [![Thunderstore Downloads](https://img.shields.io/thunderstore/dt/RB007/LethalAnalytics?style=for-the-badge&logo=thunderstore&logoColor=white)](https://thunderstore.io/c/lethal-company/p/RB007/LethalAnalytics/)
