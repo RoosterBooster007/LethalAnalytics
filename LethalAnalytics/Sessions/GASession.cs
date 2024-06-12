@@ -60,14 +60,14 @@ namespace LethalAnalytics
 
         private void OnLCClosing(object sender, EventArgs e)
         {
-            SendGAEvent("state", "session_end", new Dictionary<string, string>() { ["closed"] = "true" });
+            sendGAEvent("state", "session_end", new Dictionary<string, string>() { ["closed"] = "true" });
         }
 
             private void OnMenuLaunch(object sender, EventArgs e)
         {
             if (recentlyUpdated())
             {
-                SendGAEvent("state", "update", new Dictionary<string, string>() { ["version"] = modVersion });
+                sendGAEvent("state", "update", new Dictionary<string, string>() { ["version"] = modVersion });
             }
         }
 
@@ -133,7 +133,7 @@ namespace LethalAnalytics
         /// <param name="event_name">The name of the event (ex. jeb_attack, host, emote, etc.). Check https://support.google.com/analytics/answer/13316687 for help. Do not use reserved prefixes or event names (type: web).</param>
         /// <param name="event_params">A dictionary of string key/value pairs that are sent as GA4 event parameters. Check https://support.google.com/analytics/answer/13316687 for help. Do not use reserved prefixes or parameter names (type: web).</param>
         /// <param name="isEngaged">Whether the event should send user engagement time with it (and prolong the current session). It's recommended to keep this set to true.</param>
-        public void SendGAEvent(string event_category, string event_name, Dictionary<string, string> event_params, bool isEngaged = true)
+        public void sendGAEvent(string event_category, string event_name, Dictionary<string, string> event_params, bool isEngaged = true)
         {
             if ((bool)LethalAnalytics.enableTele.BoxedValue && (bool)enableTele.BoxedValue)
             {

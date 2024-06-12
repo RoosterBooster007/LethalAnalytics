@@ -68,14 +68,14 @@ namespace LethalAnalytics
                 modsList += m + ",";
             }
 
-            gaSession.SendGAEvent("event", "sent_events", new Dictionary<string, string>() { ["events_count"] = (totalEventsSent - prevTotalEventsSent).ToString(), ["mods_count"] = (recentModList.Count).ToString(), ["mods_list"] = modsList }, true);
+            gaSession.sendGAEvent("event", "sent_events", new Dictionary<string, string>() { ["events_count"] = (totalEventsSent - prevTotalEventsSent).ToString(), ["mods_count"] = (recentModList.Count).ToString(), ["mods_list"] = modsList }, true);
             prevTotalEventsSent = totalEventsSent;
         }
 
         private void OnQMenuOpen(object sender, EventArgs e)
         {
             eventsSent.BoxedValue = totalEventsSent;
-            gaSession.SendGAEvent("event", "menu_open", new Dictionary<string, string>() { }, true);
+            gaSession.sendGAEvent("event", "menu_open", new Dictionary<string, string>() { }, true);
         }
     }
 }
