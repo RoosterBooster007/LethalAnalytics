@@ -1,6 +1,8 @@
 ﻿using BepInEx.Configuration;
 using LethalConfig;
 using LethalConfig.ConfigItems;
+using System.Text.RegularExpressions;
+using UnityEngine.Windows;
 
 namespace LethalAnalytics
 {
@@ -29,6 +31,9 @@ namespace LethalAnalytics
         /// <returns>This method returns an instance of GASession. You can use this class instance to send custom events to GA4 and check whether telemetrics have been disabled for this particular property.</returns>
         public static GASession registerGASession(string modId, string modName, string modVersion, string modDesc, string measurementId, string screenTitle = "MainMenu", string renewScreenTitle = "InGame", bool sendSystemInfo = true, int sessionLengthMins = 30)
         {
+            // cleans modName so that it's supported by LethalConfig
+            modName = Regex.Replace(modName, @"[^A-Za-z0-9 ]", "");
+            modName = modName.Trim();
             // should be moved to its own method once other analytics sites are supported
             ConfigEntry<bool> enableTele = LethalAnalytics.configFile.Bind("Mods", modName, true, modDesc + "\n\n[Important: This entry indicates whether a mod receives analytics updates. Consult the description above.]");
             var cb_eT = new BoolCheckBoxConfigItem(enableTele, requiresRestart: false);

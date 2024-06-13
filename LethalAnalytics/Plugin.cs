@@ -44,7 +44,7 @@ namespace LethalAnalytics
             enableTele = Config.Bind("General", "Enable telemetry", true, "When enabled, some anonymous user data/input actions may be uploaded to various analytics sites. This helps mod creators understand what features are used the most and what they can improve. :) \n\nCheck each mod listed below to see what data is collected.\n\nSupported analytics sites:\n - Google Analytics");
             var cb_eT = new BoolCheckBoxConfigItem(enableTele, requiresRestart: false);
             LethalConfigManager.AddConfigItem(cb_eT);
-            eventsSent = Config.Bind("Info", "Events sent this session: ", totalEventsSent, "[Read-only] This shows how many total analytics events have been sent, via the plugins listed below, while you've been online.");
+            eventsSent = Config.Bind("Info", "Events sent this session", totalEventsSent, "[Read-only] This shows how many total analytics events have been sent, via the plugins listed below, while you've been online.");
             var int_eS = new IntInputFieldConfigItem(eventsSent, requiresRestart: false);
             LethalConfigManager.AddConfigItem(int_eS);
             configFile = Config;
