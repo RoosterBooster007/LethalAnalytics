@@ -58,7 +58,7 @@ public class YourHopefullyErrorFreeModOrSmth : BaseUnityPlugin { ... }
 If uploading your mod to Thunderstore, make sure to include LethalAnalytics in your ``manifest.json`` file.
 
 ### Creating a GA session
-Reference the static ``AnalyticsManager`` class and call the ``registerGASession(...)`` method to connect your plugin to Google Analytics (GA4):
+Reference the static ``AnalyticsManager`` class and call the ``registerGASession(...)`` method to connect your mod to Google Analytics (GA4):
 ```c#
 GASession gaSession = AnalyticsManager.registerGASession("net.YourUsername.YourMod", "Your Mod Name", "1.0.0", "Your mod desc. that explains what data you will collect and WHY you're collecting it.", "G-YOURMEASUREMENTID");
 ```
