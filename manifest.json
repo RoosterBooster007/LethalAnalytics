@@ -1,6 +1,6 @@
 {
     "name": "LethalAnalytics",
-    "version_number": "1.0.0",
+    "version_number": "1.0.1",
     "website_url": "https://github.com/RoosterBooster007/LethalAnalytics/",
     "description": "Allows mod creators to see how their mods are used, easily catch errors, and learn about their audience. Supports Google Analytics!",
     "dependencies": [
