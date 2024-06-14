@@ -187,7 +187,7 @@ namespace LethalAnalytics
 
                 if (sendSystemInfo)
                 {
-                    sysInfo += "&ep.cpu = " + SystemInfo.processorType + " & ep.gpu = " + SystemInfo.graphicsDeviceName;
+                    sysInfo += "&ep.cpu=" + SystemInfo.processorType + "&ep.gpu=" + SystemInfo.graphicsDeviceName;
                 }
 
                 if (startingSession)
